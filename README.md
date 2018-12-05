@@ -1,2 +1,4 @@
 # salt
-Palvelinten hallinta - miniprojekti
+Palvelinten hallinta - miniprojekti - phpVirtualBox
+
+SaltStack moduuli, joka asentaa VirtualBoxin, jota voi käyttää selaimessa (phpVirtualBox).
