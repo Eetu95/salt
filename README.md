@@ -1,0 +1,2 @@
+# salt
+Palvelinten hallinta - miniprojekti
