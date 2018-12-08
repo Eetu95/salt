@@ -15,3 +15,8 @@ add_new_vbox_user:
 vboxweb-service:
   service.running:
     - enable: True
+
+install_software:
+  cmd.run:
+    - name: sudo apt-get -y install apache2 libapache2-mod-php7.0 libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap libapr1 php7.0-common php7.0-mysql php7.0-soap php-pear wget
+    - creates: /etc/apache2
