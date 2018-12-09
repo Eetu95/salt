@@ -11,21 +11,12 @@ add_new_vbox_user:
     - source: salt://phpvirtualbox/virtualbox
     - unless: ls /etc/default/virtualbox
 
-#vboxweb-service:
-#  service.running:
-#    - enable: True
-
 install_software:
   cmd.run:
     - name: sudo apt-get -y install apache2 libapache2-mod-php7.0 libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap libapr1 php7.0-common php7.0-mysql php7.0-soap php-pear wget
     - creates: 
-        - /etc/apache2
-        - /etc/php
-
-apache2:
-  service.running:
-    - enable: True
-    - reload: True
+      - /etc/apache2
+      - /etc/php
 
 /var/www/html/phpvirtualbox-5.0-5.zip:
   file.managed:
@@ -46,6 +37,15 @@ config.php:
     - name: sudo cp /var/www/html/phpvirtualbox-5.0-5/config.php-example /var/www/html/phpvirtualbox-5.0-5/config.php
     - unless: ls /var/www/html/phpvirtualbox-5.0-5/config.php
 
+service.restart:
+  module:
+    - run
+    - m_name: vboxweb-service
+
 vboxweb-service:
+  service.running:
+    - enable: True
+
+apache2:
   service.running:
     - enable: True
