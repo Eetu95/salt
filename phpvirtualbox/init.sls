@@ -1,5 +1,6 @@
-# Creates a new vbox user that adds it to vboxusers group. Remember to give your own password after the user has been created by Salt.
-# --> passwd vbox
+# Creates a new vbox user that adds it to vboxusers group. Remember to give your own password --> sudo passwd vbox
+# After this Salt state has been run, add your vbox user password to the /var/www/html/phpvirtualbox-5.0-5/config.php -file. Change the password 'pass'.
+# Lastly remember to restart vboxweb-service and apache2 --> sudo systemctl restart vboxweb-service.service apache2.service
 
 add_new_vbox_user:
   cmd.run:
@@ -36,11 +37,6 @@ config.php:
   cmd.run:
     - name: sudo cp /var/www/html/phpvirtualbox-5.0-5/config.php-example /var/www/html/phpvirtualbox-5.0-5/config.php
     - unless: ls /var/www/html/phpvirtualbox-5.0-5/config.php
-
-service.restart:
-  module:
-    - run
-    - m_name: vboxweb-service
 
 vboxweb-service:
   service.running:
