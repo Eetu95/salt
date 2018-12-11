@@ -5,7 +5,7 @@ SaltStack moduuli, joka asentaa VirtualBoxin ja sitä voi käyttää selaimessa 
 
 ## SaltStack - phpVirtualBox
 
-Tavoitteenani oli tehdä SaltStack -projekti, joka asentaa VirtualBoxin Linuxille (Ubuntu) ja että sitä voi käyttää selaimessa (phpVirtualBox).
+Tavoitteenani oli tehdä SaltStack -miniprojekti, joka asentaa VirtualBoxin Linuxille (Ubuntu) ja että sitä voi käyttää selaimessa (phpVirtualBox). Miniprojektin salt tilojen avulla saa phpVirtualBoxin asennettua nopeasti ja pidettyä sen idempotenttina.
 
 Käytin projektin demoamisessa VirtualBox VM ympäristöä. Asensin VirtualBoxiin Linux Xubuntu 18.04 Desktop AMD64 sekä Linux Ubuntu Server 16.04.5 LTS 64-bit Virtuaalikoneet. Käytin Linux Xubuntua herrana ja Linux Ubuntu Serveriä orjana.
 
